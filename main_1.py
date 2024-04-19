@@ -1,5 +1,5 @@
 import functions as f
-import countriesdata as cd
+import data.countriesdata as cd
 from modules.userid import *
 from modules.gencolor import generate_colors
 
