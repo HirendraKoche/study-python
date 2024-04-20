@@ -2,17 +2,11 @@
 
 from datetime import *
 import logging
-import logging.config
-import yaml
+import setupLog
 
-try:
-    with open("log_config.yml", "r") as cf:
-        config = yaml.safe_load(cf)
-        logging.config.dictConfig(config)
-except Exception as e:
-    print(e)
+setupLog.setupLog()
 
-logger = logging.getLogger('datetimep')
+logger = logging.getLogger("datetimep")
 
 # Get the current day, month, year, hour, minute and timestamp from datetime module
 def get_all_current_dt():
