@@ -2,10 +2,17 @@
 
 from datetime import *
 import logging
+import logging.config
+import yaml
 
-logging.basicConfig(filename="logs/datetimep.log", encoding="utf-8", datefmt="%m-%d-%Y %H:%M:%S %Z", format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
-logger = logging.getLogger("datetimep.py")
-logger.setLevel(logging.DEBUG)
+try:
+    with open("log_config.yml", "r") as cf:
+        config = yaml.safe_load(cf)
+        logging.config.dictConfig(config)
+except Exception as e:
+    print(e)
+
+logger = logging.getLogger('datetimep')
 
 # Get the current day, month, year, hour, minute and timestamp from datetime module
 def get_all_current_dt():
@@ -44,7 +51,7 @@ def diff_date(dt: datetime):
         logger.info(f"diff_date() return {diff}")
         logger.debug("Exit diff_date()")
 
-def main():
+if __name__ == '__main__':
     logger.debug("Inside main()")
     try:
         get_all_current_dt()
@@ -54,6 +61,3 @@ def main():
         logger.exception(e, exc_info=True)
     finally:
         logger.debug("Exit main()")
-    
-
-main()
