@@ -6,10 +6,10 @@ formatters:
 handlers:
   file:
     class: logging.handlers.TimedRotatingFileHandler
-    filename: logs/datetimep.log
-    when: 'M'
-    interval: 2
-    backupCount: 3
+    filename: ./logs/datetimep.log
+    when: 'D'
+    interval: 1
+    backupCount: 10
     encoding: utf8
     formatter: formatter_1
   console:
@@ -18,6 +18,6 @@ handlers:
     formatter: formatter_1
 loggers:
   datetimep:
-    level: INFO
+    level: DEBUG
     propogation: yes
     handlers: [file]
