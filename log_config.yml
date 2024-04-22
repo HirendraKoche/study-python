@@ -6,7 +6,7 @@ formatters:
 handlers:
   file:
     class: logging.handlers.TimedRotatingFileHandler
-    filename: ./logs/datetimep.log
+    filename: ./logs/study.log
     when: 'D'
     interval: 1
     backupCount: 10
@@ -21,3 +21,8 @@ loggers:
     level: DEBUG
     propogation: yes
     handlers: [file]
+  study.exception:
+    level: DEBUG
+    propogation: yes
+    handlers: [file]
+  
