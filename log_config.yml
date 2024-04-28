@@ -25,4 +25,8 @@ loggers:
     level: DEBUG
     propogation: yes
     handlers: [file]
+  study.fileStudy:
+    level: DEBUG
+    propogation: yes
+    handlers: [file]
   
