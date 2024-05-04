@@ -33,4 +33,8 @@ loggers:
     level: DEBUG
     propogation: yes
     handlers: [file]
+  study.webScrapping:
+    level: DEBUG
+    propogation: yes
+    handlers: [file]
   
