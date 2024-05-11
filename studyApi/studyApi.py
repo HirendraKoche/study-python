@@ -1,11 +1,10 @@
 from flask import *
+from bson import json_util, ObjectId
 import os
 import pymongo
-from bson import json_util, ObjectId
 import setupLog
 import logging
 import traceback
-
 
 setupLog.setupLog()
 logger = logging.getLogger('study.studyApi')
@@ -90,7 +89,16 @@ def updateStudent(id):
     finally:
         logger.info("Exit updateStudent function")
 
+@app.route("/shutdown")
+def shutdown():
+    try:
+        return Response("Shutting down!")
+    finally:
+        logger.warning("Shutting down server!")
+        os._exit(0)
+    
 if __name__ == '__main__':
     logger.info("Starting server")
     port = int(os.environ.get("PORT", 443))
-    app.run(debug=True, host='0.0.0.0', port=port, ssl_context="adhoc")
+    extra_files = ["log_config.yml"]
+    app.run(debug=True, host='0.0.0.0', port=port, ssl_context="adhoc", extra_files=extra_files)

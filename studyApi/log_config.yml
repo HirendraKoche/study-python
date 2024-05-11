@@ -18,7 +18,7 @@ handlers:
     formatter: formatter_1
 loggers:
   study.studyApi:
-    level: DEBUG
+    level: WARN
     propogation: yes
     handlers: [file]
   
